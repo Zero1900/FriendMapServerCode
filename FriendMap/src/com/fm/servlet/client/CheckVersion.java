@@ -67,7 +67,7 @@ public class CheckVersion extends ServletBase {
 		ClientVersion tmpClientVersion=clientVersions.getData(Integer.valueOf(fmRequest.getClientVersion()));
 		
 		//强更信息
-		JSONObject jsonObject=fmResponse.getJsonObject();
+		JSONObject jsonObject=fmResponse.getJsonResult();
 		jsonObject.put("forceUpdate", tmpClientVersion.forceUpdate);
 		
 		//最新版本信息

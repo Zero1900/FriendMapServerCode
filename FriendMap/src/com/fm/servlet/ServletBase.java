@@ -86,19 +86,8 @@ public abstract class ServletBase extends HttpServlet {
 			e.printStackTrace();
 			errorCode=ErrorConsts.UNKNOWN;
 		}
-		
-		JSONObject jsonObject=fmResponse.getJsonObject();
-		try {
-			jsonObject.put("errorCode", errorCode);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		PrintWriter out = httpServletResponse.getWriter();
-		out.print(jsonObject.toString());
-		out.flush();
-		out.close();
+		fmResponse.setErrorCode(errorCode);
+		fmResponse.append();
 	}
 
 	/**

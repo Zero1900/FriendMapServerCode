@@ -1,8 +1,5 @@
 package com.fm.collect;
 
-import javax.swing.plaf.basic.BasicArrowButton;
-
-import org.bson.NewBSONDecoder;
 
 import com.fm.common.FMMongo;
 import com.fm.data.UserInfo;
@@ -37,7 +34,6 @@ public class UserInfos {
 			userInfo.userid="0";
 		}
 		collection.insert(userInfo.createDbObject());
-		
 		return true;
 	}
 	

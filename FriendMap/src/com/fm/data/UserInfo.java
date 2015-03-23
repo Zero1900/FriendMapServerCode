@@ -38,11 +38,23 @@ public class UserInfo {
 	 * @return
 	 * @throws JSONException
 	 */
-	public JSONObject createJsonObject() throws JSONException{
+	public JSONObject createJson() throws JSONException{
 		JSONObject jsonObject=new JSONObject();
 		jsonObject.put("userid", userid);
 		jsonObject.put("username", username);
 		jsonObject.put("password", password);
+		jsonObject.put("nickname", nickname);
+		return jsonObject;
+	}
+	/**
+	 * 创建用来展示的jsonObject
+	 * @return
+	 * @throws JSONException
+	 */
+	public JSONObject createJsonForShow() throws JSONException{
+		JSONObject jsonObject=new JSONObject();
+		jsonObject.put("userid", userid);
+		jsonObject.put("username", username);
 		jsonObject.put("nickname", nickname);
 		return jsonObject;
 	}

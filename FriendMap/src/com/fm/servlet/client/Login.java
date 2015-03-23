@@ -20,8 +20,6 @@ public class Login extends ServletBase {
 	public int doSolve(FMRequest fmRequest, FMResponse fmResponse) throws Exception {
 		// 解析json
 		JSONObject jsonRequest = null;
-		String s = fmRequest.getClientParmas();
-		jsonRequest = new JSONObject(s);
 		try {
 			jsonRequest = fmRequest.getClientParamsInJson();
 		} catch (JSONException e) {
@@ -50,8 +48,10 @@ public class Login extends ServletBase {
 		
 		FMSession session=fmRequest.getSession(); 
 		String sessionKey=session.getKey();
-		JSONObject jsonResponse=fmResponse.getJsonObject();
+		JSONObject jsonResponse=fmResponse.getJsonResult();
 		jsonResponse.put("session", sessionKey);
+		
+		session.setLoginInfo(userInfo.userid);
 		
 		return ErrorConsts.NOERROR;
 	}
